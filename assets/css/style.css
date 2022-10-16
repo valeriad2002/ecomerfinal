@@ -1,0 +1,767 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+:root {
+  /*========== Colors ==========*/
+	--first-color: hsl(354, 78%, 60%);
+	--button-color: hsl(0, 0%, 17%);
+	--button-color-alt: hsl(0, 0%, 21%);
+	--card-color: hsl(0, 0%, 90%);
+	--title-color: hsl(0, 0%, 15%);
+	--text-color: hsl(0, 0%, 35%);
+	--text-color-light: hsl(0, 0%, 55%);
+	--body-color: hsl(206, 4%, 97%);
+	--container-color: #fff;
+ 	--border-color: hsl(0, 0%, 94%);
+  /*========== Se manejaran 3 tamanios max-width ==========*/
+	--mobile: 780px;
+	--tablet: 960px;
+	--desktop: 1200px;
+
+  /*========== Font and typography ==========*/
+	--body-font: "Roboto", sans-serif;
+}
+
+/*=============== THEME ===============*/
+/*========== Variables Dark theme ==========*/
+
+body {
+	background: var(--body-color);
+	font-family: var(--body-font);
+	color: var(--text-color);
+	max-width: var(--desktop);
+}
+body.theme__dark {
+	--first-color: hsl(182, 53%, 74%);
+	--button-color: hsl(246, 16%, 12%);
+	--button-color-alt: hsl(0, 0%, 28%);
+	--card-color: hsla(246, 16%, 5%, 0.5);
+	--title-color: hsl(0, 0%, 95%);
+	--text-color: hsl(0, 0%, 75%);
+	--body-color: hsl(249, 18%, 13%);
+	--container-color: hsl(246, 16%, 12%);
+	--border-color: hsl(0, 0%, 20%);
+}
+
+/*================= LOADER ================*/
+
+.loader {
+	background-color: whitesmoke;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.loader.hide {
+	display: none;
+}
+
+.loader--img {
+	width: 100px;
+	fill: var(--first-color);
+	position: relative;
+	animation: load 1.5s infinite;
+}
+
+@keyframes load {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: -30px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+
+
+/*====== ESTILIZANDO BARRA DE NAVEGACION ======*/
+
+.headPage {
+	margin: 0 auto;
+	width: 100%;
+	max-width: var(--mobile);
+}
+.headPage--secBar__cont {
+	z-index: 600;
+	display: grid;
+	align-items: center;
+	position:fixed;
+	width: 100%;
+	max-width: var(--mobile);
+	grid-template-columns: 50px 1fr 100px 40px;
+	grid-template-areas: "logo . boxIcon menuIcon";
+	background: var(--container-color);
+	top: 0;
+	box-shadow: 0px 1px 8px 1px var(--text-color-light);
+}
+.headPage--secBar__cont {
+	z-index: 600;
+}
+
+.imglogo {
+	height: 60px;
+	width: 60px;
+	fill: var(--first-color);
+}
+.headPage--secBar__logo{
+	grid-area: logo;
+}
+.headPage--secBar__logo > h3{
+	display: none;
+}
+.headPage--secBar__cont__BoxIcon {
+	grid-area: boxIcon;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.BoxIconShop{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.circuloPeNum{
+	border-radius: 50%;
+    background-color: var(--card-color);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+	border: 2px solid var(--first-color);
+	font-size: 12px;
+	display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    align-content: center;
+}
+.headPage--secBar__cont__menuMobile {
+	grid-area: menuIcon;
+	display: flex;
+}
+.headPage--secBar__navClose{
+	text-align: center;
+	margin: 1.5rem;
+}
+/*============ ESTILIZANDO El CARRITO DE COMPRAS ============*/
+
+.asidePage-mainCart{
+	z-index: 700;
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	max-width: 400px;
+	top: 0;
+	right: -100%;
+	transition: right ease 2s;
+	background: var(--body-color);
+	border-left: 4px solid var(--first-color);}
+.viewAside{
+	right: 0;
+}
+.asidePage-mainCart{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem 0.5rem;
+}
+/*======================*/
+.asidePage-mainCart__title{
+	margin: 1rem 0;
+}
+#carShop{
+	overflow-y: scroll;
+	text-align: center;
+}
+.asidePage-mainCart__titleCartEmpty{
+	font-size: 25px;
+	font-weight: 600;
+	text-align: center;
+}
+.bx-cart{
+	margin: 1rem 0;
+	font-size: 100px;
+}
+#asidePage__totalShop{
+	text-align: center;
+}
+#carShop::-webkit-scrollbar {
+    width: 8px;
+	
+}
+#carShop::-webkit-scrollbar-thumb {
+    background-color: var(--first-color);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+#carShop::-webkit-scrollbar-track{
+	background: #bbb1;
+	border-radius: 20px;
+	border: 10px solid transparent;;
+}
+
+/*========================*/
+.asidePage__carShop{
+	margin: 0.5rem 0;
+	background-color: var(--card-color);
+	width: 300px;
+	height: 100px;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1f 1f;
+	grid-template-areas: 
+	"menos name mas"
+	"cant price total";
+}
+.asidePage__carShopName{
+	grid-area: name;
+}
+.asidePage__carShopPrice{
+	grid-area: price;
+
+}
+.asidePage__carShop > p{
+	grid-area: cant;
+}
+.asidePage__carShopTotal{
+	grid-area: total;
+	font-size: 15px;
+}
+.asidePage__carShop > h5{
+	font-size: 15px;
+}
+
+.btn-add_shop{
+	grid-area: mas;
+	align-items: center;
+	font-size: 25px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	color: var(--title-color);
+	border: 5px solid var(--first-color);
+	background-color: var(--card-color);
+	box-shadow: 0px 4px 1px 1px var(--first-color);
+}
+.btn-rest_shop{
+	grid-area: menos;
+	align-items: center;
+	font-size: px;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	color: var(--title-color);
+	border: 5px solid var(--first-color);
+	background-color: var(--card-color);
+	box-shadow: 0px 4px 1px 1px var(--first-color);
+}
+
+.asidePage__totalShopCont{
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas: 
+	"ite pur"
+	"bx che";
+	margin: 1rem auto;
+	padding: 1rem 0.5rem;
+	background-color: var(--card-color);
+	font-size: 10px;
+	border-radius: 10px;
+	width: 300px;
+}
+.totalShopCont--purchase{
+	grid-area: pur;
+	font-size: 16px;
+}
+.totalShopCont--items{
+	grid-area: ite;
+}
+.bx-trash{
+	grid-area: bx;
+	font-size: 30px;
+	
+}
+.btn-check{
+	grid-area: che;
+	align-items: center;
+	font-size: 15px;
+	height: 30px;
+	width: 85px;
+	border-radius: 10px;
+	color: var(--title-color);
+	border: 5px solid var(--first-color);
+	background-color: var(--card-color);
+	box-shadow: 0px 4px 0px 0px var(--first-color);
+}
+
+/*========== Estilando La Nav VAr ===========*/
+.headPage--secBar__nav__listNav {
+	z-index: 800;
+	width: 100%;
+	height: 100%;
+	max-width: 400px;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	transition: left ease 2s;
+	background: var(--body-color);
+	border-right: 4px solid var(--first-color);
+}
+.viewNav{
+	left: 0;
+	
+}
+/*========== Estilando Las Listas del Nav ============*/
+
+.headPage--secBar__nav__listNav--item {
+	list-style: none;
+}
+.headPage--secBar__nav__listNav--item > a {
+	text-decoration: none;
+}
+.headPage--secBar__nav__listNav--item > a > h2 {
+	text-align: center;
+	width: auto;
+	padding: 0.5rem;
+	margin: 10px auto;
+	color: var(--text-color);
+}
+
+/*============ ESTILIZANDO EL BANNER DE PUBLICIDAD SUPERIOR ============*/
+
+.headPage--banner {
+	z-index: 400;
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: center;
+	align-items: center;
+	background: var(--body-color);
+	margin: 0 1rem;
+	transition: ease 1s;
+}
+.headPage--banner__contImg {
+	display: flex;
+	justify-content: end;
+	height: 350px;
+	transition: ease 1s;
+}
+.banner--btn_next{
+	border: 4px solid var(--first-color);
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid var(--first-color);
+	border-bottom: 6px solid var(--first-color);
+	background: var(--card-color);
+	font-size: 30px;
+	position: absolute;
+	left: 75%;
+	top: 50%;
+	
+}
+.banner--btn_next:active{
+	transform: translateY(3px);
+	border-bottom: 2px solid var(--first-color);
+}
+.headPage--banner__contImg > div {
+	background-color: var(--first-color);
+	position: relative;
+	left: 17px;
+	width: 250px;
+	height: 350px;
+	display: flex;
+	justify-content: end;
+	align-items: flex-end;
+	transition: ease 1s;
+}
+
+.headPage--banner__inf__title {
+	font-size: 24px;
+	padding: 1rem 0;
+	color: var(--title-color);
+}
+.headPage--banner__inf > p {
+	font-size: 16px;
+	padding: 1rem 0;
+	text-align: justify;
+}
+.headPage--banner__inf__price {
+	color: var(--first-color);
+	padding: 0.5rem 0;
+	font-size: 25px;
+}
+.headPage--banner__inf__btnShop {
+	display: flex;
+	gap: 0.5rem;
+}
+.headPage--banner__inf__btnShop > div {
+	box-shadow: 2px 1px 200px 1px var(--text-color-light);
+	margin: 0.5rem 0;
+}
+.headPage--banner__inf__btnShop > div > button {
+	background-color: var(--card-color);
+	padding: 0.5rem;
+	border: none;
+	border-radius: 10px;
+	transition: all ease 100ms;
+	border: 2px solid var(--first-color);
+	border-bottom: 6px solid var(--first-color);
+}
+.headPage--banner__inf__btnShop > div > button > h3{
+	color: var(--text-color);
+}
+.headPage--banner__inf__btnShop > div > button:active {
+	transform: translateY(5px);
+	border-bottom: 2px solid var(--first-color);
+}
+
+/*=============== ESTILIZANDO MAIN ===================*/
+
+/*====== BOTON ======*/
+.btn-add{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	height: 50px;
+	width: 50px;
+	border: 5px solid var(--first-color);
+	border-radius: 50%;
+	color: var(--title-color);
+	background-color: var(--card-color);
+	box-shadow: 0px 4px 1px 1px var(--first-color);
+	position: relative;
+	top: -20px;
+	left: 10px;
+}
+
+.bt:active{
+	transform: translateY(4px);
+	box-shadow: 0px 0px 0px 0px var(--first-color);
+}
+/*========= FOTO DEL VIEW PRODUCT=======*/
+.shop--productContImg{
+	background-color: var(--card-color);
+	display: flex;
+	justify-content: center;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	height: 300px;
+	width: 300px;
+	top: 10px;
+	transition: ease 1s;
+
+}
+.shop--productImg{
+	max-width: 450px;
+}
+/*============  ==============*/
+main{
+	margin: 0 auto;
+    width: 100%;
+    max-width: var(--mobile);
+}
+
+.mainPage--viewProduct{
+	margin: 1rem auto;
+	padding: 0 0.5rem;
+	/*border: 4px solid var(--first-color);*/
+	border-radius: 20px;
+	display: grid;
+	gap: 2rem;
+	justify-content: center;
+	overflow-x: scroll;
+}
+.mainPage--viewProduct::-webkit-scrollbar {
+	height: 15px;    /* Tamaño del scroll en horizontal */
+	display: contents;
+}
+.mainPage--viewProduct::-webkit-scrollbar-thumb {
+	
+	background: #9995;
+	border-radius: 10px;
+	border: 1px solid var(--first-color);
+	border-bottom: 3px solid var(--first-color);
+	border-right: 3px solid var(--first-color);
+}
+.mainPage--viewProduct::-webkit-scrollbar-thumb:hover {
+	background: rgba(225, 225, 225, 0.818);
+	border-bottom: 2px solid var(--celeste);
+	border-right: 2px solid var(--celeste);
+}
+/*
+.mainPage--viewProduct__shop{
+	
+}*/
+
+.shop--productNameCont{
+	background-color: var(--container-color);
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	justify-items: center;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1f 1f;
+	grid-template-areas: 
+	"price stok boton"
+	"name name name";
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	height: 100px;
+	width: 300px;
+}
+.shop--productName{
+	grid-area: name;
+	font-size: 25px;
+	padding: 5px;
+}
+.shop--productPrice{
+	grid-area: price;
+	font-size: 20px;
+	padding: 5px;
+	border-right: 1px solid var(--first-color);
+}
+.shop--productNameCont > p{
+	grid-area: stok;
+}
+.btn-add{
+	grid-area: boton;
+}
+
+/*Categorias de  Productos */
+
+.mainPage--contVar{
+	margin: 1rem auto;
+	padding: 0.5rem;
+}
+.mainPage--contVar > ul {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+.mainPage--contVar > ul > li {
+	font-size: 18px;
+	border-left: 2px solid var(--first-color);
+	padding-left: 0.5rem;
+}
+/*=========================================*/
+
+/*========== footer ========*/
+
+footer{
+	margin: 2rem auto;
+	padding: 0 0.5rem;
+	display: grid;
+	gap: 2rem;
+	background: var(--card-color);
+	transition: ease 1s;
+}
+
+footer > div {
+	padding: 4rem 0.5rem;
+    display: grid;
+	transition: ease 1s;
+}
+.informatio{
+	margin: 2rem 0;
+}
+footer  h3 {
+	font-size: 20px;
+}
+footer  h4 {
+	font-size: 15px;
+	font-weight: normal;
+}
+footer  ul {
+	list-style: none;
+	font-size: 15px;
+	margin: 1rem 0;
+}
+footer i {
+	font-size: 30px;
+}
+		
+.Social > h3{
+	margin: 1rem 0;
+}
+footer > h3 {
+	text-align: center;
+	font-size: 15px;
+}
+footer > h3 > i {
+	font-size: 15px;
+}
+
+/*============= MEDIA QUERY ===================*/
+
+@media screen and (min-width: 480px) {
+	.headPage--banner {
+		transition: ease 1s;
+	}
+	.headPage--banner__contImg {
+		display: flex;
+		justify-content: end;
+		height: 500px;
+	}
+	.headPage--banner__contImg > div {
+		width: 400px;
+		height: 500px;
+		transition: ease 1s;
+	}
+	.banner--btn_next{
+		transition: ease 1s;
+		top: 50%;
+	}
+
+	/*==== footer ======*/
+	footer > div {
+		grid-template-columns: 1fr 1fr;
+		justify-items: center;
+		align-items: baseline;
+		justify-content: center;
+		align-content: center;
+		transition: ease 1s;
+	}
+}
+
+
+@media screen and (min-width: 720px) {
+	/*========  barra superior ========*/
+	.headPage {
+		max-width: var(--tablet);
+	}
+	.headPage--secBar__cont{
+		max-width: var(--tablet);
+		grid-template-columns: 150px 1fr 0.25fr 100px;
+		grid-template-areas: "logo nav . boxIcon";
+	}
+	.headPage--secBar__cont__menuMobile {
+		display: none;
+		transition: ease 1s;
+	}
+	.headPage--secBar__nav{
+		grid-area: nav;
+	}
+	.headPage--secBar__navClose{
+		display: none;
+	}
+	.headPage--secBar__logo{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-color-light);
+	}
+	.headPage--secBar__logo:hover{
+		text-shadow: 5px 10px 30px var(--first-color);
+		cursor: pointer;
+	}
+	.headPage--secBar__logo > h3 {
+		display: inline-block;
+		font-size: 30px;
+	}
+	.headPage--secBar__nav__listNav{
+		z-index: 800;
+		display: flex;
+		width: auto; 
+		height: auto; 
+		max-width: auto; 
+		position: relative; 
+		top: 0; 
+		left: 0;
+		transition: left ease 2s;
+		background: transparent;
+		border: none;
+		
+	}
+	/*=====  banner de publicidad =====*/
+	.headPage--banner {
+		transition: ease 1s;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+		"inf imgBan";
+	}
+	.headPage--banner__contImg{
+		grid-area: imgBan;
+		transition: ease 1s;
+	}
+	.headPage--banner__inf{
+		grid-area: inf;
+		transition: ease 1s;
+	}
+	.headPage--banner__contImg {
+		display: flex;
+		justify-content: end;
+		height: 550px;
+	}
+	.headPage--banner__contImg > div {
+		width: 450px;
+		height: 550px;
+		transition: ease 1s;
+	}
+	.banner--btn_next{
+		transition: ease 1s;
+		top: 40%;
+	}
+
+	/*======  Main ======*/
+	.mainPage--contVar{
+		margin: 3rem 0;
+	}
+	.mainPage--contVar > ul{
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	.mainPage--viewProduct{
+		grid-template-columns: 1fr 1fr 1fr;
+		justify-content: space-between;
+
+	}
+	/*footer*/
+	
+	footer > div {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		transition: ease 1s;
+	}
+}
+@media screen and (min-width: 1024px) {
+	/*=====  banner de publicidad =====*/
+	.headPage--banner {
+		transition: ease 1s;
+	}
+	.headPage--banner__contImg {
+		display: flex;
+		justify-content: end;
+		height: 625px;
+	}
+	.headPage--banner__contImg > div {
+		width: 450px;
+		height: 625px;
+		transition: ease 1s;
+	}
+	.banner--btn_next{
+		transition: ease 1s;
+		top: 20%;
+	}
+}
